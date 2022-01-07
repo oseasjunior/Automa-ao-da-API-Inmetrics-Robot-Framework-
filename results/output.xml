@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.10.1 on win32)" generated="20220107 11:28:26.624" rpa="false" schemaversion="2">
+<suite id="s1" name="Api inmetrics" source="C:\Users\oseas.junior\OneDrive\#Exercicios\Robot\API_Inmetrics\specs\Api_inmetrics.robot">
+<test id="s1-t1" name="Cenario: Lista todos os funcionarios (GET)">
+<kw name="Dado que eu esteja logado" library="base">
+<kw name="Create List" library="BuiltIn">
+<var>${AUTH}</var>
+<arg>${user}</arg>
+<arg>${password}</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20220107 11:28:26.708" level="INFO">${AUTH} = ['inmetrics', 'automacao']</msg>
+<status status="PASS" starttime="20220107 11:28:26.708" endtime="20220107 11:28:26.708"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>APIInmetrics</arg>
+<arg>${BASE_URL_API}</arg>
+<arg>auth=${AUTH}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220107 11:28:26.708" level="INFO">Creating Session using : alias=APIInmetrics, url=https://inm-api-test.herokuapp.com/empregado, headers={},                     cookies={}, auth=&lt;requests.auth.HTTPBasicAuth object at 0x000001472E4A4070&gt;, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220107 11:28:26.708" endtime="20220107 11:28:26.708"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${AUTH}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220107 11:28:26.708" level="INFO">${AUTH} = ['inmetrics', 'automacao']</msg>
+<status status="PASS" starttime="20220107 11:28:26.708" endtime="20220107 11:28:26.708"/>
+</kw>
+<status status="PASS" starttime="20220107 11:28:26.708" endtime="20220107 11:28:26.708"/>
+</kw>
+<kw name="Quando eu chamo o endpoint da inmetrics" library="base">
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${RESPOSTA_GET}</var>
+<arg>APIInmetrics</arg>
+<arg>${BASE_URL_API}/list_all</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220107 11:28:27.905" level="INFO">GET Request : url=https://inm-api-test.herokuapp.com/empregado/list_all 
+ path_url=/empregado/list_all 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Basic aW5tZXRyaWNzOmF1dG9tYWNhbw=='} 
+ body=None 
+ </msg>
+<msg timestamp="20220107 11:28:27.905" level="INFO">GET Response : url=https://inm-api-test.herokuapp.com/empregado/list_all 
+ status=200, reason= 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'Set-Cookie': 'JSESSIONID=87A217587006463981D66D994C74832E; Path=/; Secure; HttpOnly', 'X-Content-Type-Options': 'nosniff', 'X-Xss-Protection': '1; mode=block', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': '0', 'Strict-Transport-Security': 'max-age=31536000 ; includeSubDomains', 'X-Frame-Options': 'DENY', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Fri, 07 Jan 2022 14:28:25 GMT', 'Via': '1.1 vegur'} 
+ body=[{"empregadoId":18488,"nome":"Teste 002","sexo":"m","cpf":"111.222.333-00","cargo":"Analista","admissao":"01/04/2010","salario":"3.000,00","comissao":"1.000,55","tipoContratacao":"clt"},{"empregadoId":18536,"nome":"Teste 003","sexo":"m","cpf":"111.222.333-00","cargo":"Analista","admissao":"01/04/2010","salario":"3.000,00","comissao":"1.000,55","tipoContratacao":"clt"},{"empregadoId":18537,"nome":"Teste 003","sexo":"m","cpf":"111.222.333-00","cargo":"Analista","admissao":"01/04/2010","salario":"3.000,00","comissao":"1.000,55","tipoContratacao":"clt"},{"empregadoId":18589,"nome":"obuicg 81b1e92b90b0","sexo":"i","cpf":"011.853.138-77","cargo":"Analista de Teste","admissao":"21/12/2021","salario":"11.000,00","comissao":"0,00","tipoContratacao":"clt"},{"empregadoId":18590,"nome":"hpnndv f712e53812e7","sexo":"i","cpf":"876.476.744-20","cargo":"Analista de Teste","admissao":"21/12/2021","salario":"11.000,00","comissao":"0,00","tipoContratacao":"pj"},{"empregadoId":18634,"nome":"hndadk 4b5783a6935d","sexo":"i","cpf":"273.908.417-02","cargo":"Analista de Teste","admissao":"28/12/2021","salario":"11.000,00","comissao":"0,00","tipoContratacao":"clt"},{"empregadoId":18635,"nome":"oxcwjy c0f1066d48ca","sexo":"i","cpf":"904.449.942-46","cargo":"Analista de Teste","admissao":"28/12/2021","salario":"11.000,00","comissao":"0,00","tipoContratacao":"pj"},{"empregadoId":18686,"nome":"fgehnp 4a6d25bae8ff","sexo":"i","cpf":"181.358.003-04","cargo":"Analista de Teste","admissao":"06/01/2022","salario":"11.000,00","comissao":"0,00","tipoContratacao":"clt"},{"empregadoId":18687,"nome":"tspyhx 304c2f61c44f","sexo":"i","cpf":"298.472.870-07","cargo":"Analista de Teste","admissao":"06/01/2022","salario":"11.000,00","comissao":"0,00","tipoContratacao":"pj"},{"empregadoId":18688,"nome":"jaison","sexo":"m","cpf":"065.874.598-71","cargo":"Desenvolvedor de Automacao junior","admissao":"07/02/1998","salario":"1.000,00","comissao":"3.000,00","tipoContratacao":"clt"},{"empregadoId":18489,"nome":"Teste 003","sexo":"m","cpf":"111.222.333-00","cargo":"Analista","admissao":"01/04/2010","salario":"3.000,00","comissao":"1.000,55","tipoContratacao":"clt"},{"empregadoId":18538,"nome":"Oseas","sexo":"i","cpf":"065.874.598-71","cargo":"Desenvolvedor de Automacao","admissao":"07/02/1998","salario":"1.000,00","comissao":"3.000,00","tipoContratacao":"clt"},{"empregadoId":18539,"nome":"Oseas","sexo":"i","cpf":"065.874.598-71","cargo":"Desenvolvedor de Automacao","admissao":"07/02/1998","salario":"1.000,00","comissao":"3.000,00","tipoContratacao":"clt"},{"empregadoId":18540,"nome":"Oseas","sexo":"i","cpf":"065.874.598-71","cargo":"Desenvolvedor de Automacao","admissao":"07/02/1998","salario":"1.000,00","comissao":"3.000,00","tipoContratacao":"clt"},{"empregadoId":18541,"nome":"Oseas","sexo":"i","cpf":"065.874.598-71","cargo":"Desenvolvedor de Automacao","admissao":"07/02/1998","salario":"1.000,00","comissao":"3.000,00","tipoContratacao":"clt"},{"empregadoId":18542,"nome":"Oseas","sexo":"i","cpf":"065.874.598-71","cargo":"Desenvolvedor de Automacao","admissao":"07/02/1998","salario":"1.000,00","comissao":"3.000,00","tipoContratacao":"clt"},{"empregadoId":18543,"nome":"Oseas","sexo":"i","cpf":"065.874.598-71","cargo":"Desenvolvedor de Automacao","admissao":"07/02/1998","salario":"1.000,00","comissao":"3.000,00","tipoContratacao":"clt"},{"empregadoId":18544,"nome":"Oseas","sexo":"i","cpf":"065.874.598-71","cargo":"Desenvolvedor de Automacao","admissao":"07/02/1998","salario":"1.000,00","comissao":"3.000,00","tipoContratacao":"clt"},{"empregadoId":18591,"nome":"Teste 003","sexo":"m","cpf":"111.222.333-00","cargo":"Analista de QA","admissao":"01/04/2010","salario":"3.050,00","comissao":"1.000,00","tipoContratacao":"clt"},{"empregadoId":18592,"nome":"Teste 003","sexo":"m","cpf":"111.222.333-00","cargo":"Analista de QA","admissao":"01/04/2010","salario":"3.050,00","comissao":"1.000,00","tipoContratacao":"clt"},{"empregadoId":18593,"nome":"Teste 003","sexo":"m","cpf":"111.222.333-00","cargo":"Analista de QA","admissao":"01/04/2010","salario":"3.050,00","comissao":"1.000,00","tipoContratacao":"clt"},{"empregadoId":18594,"nome":"Teste 003","sexo":"m","cpf":"111.222.333-00","cargo":"Analista de QA","admissao":"01/04/2010","salario":"3.050,00","comissao":"1.000,00","tipoContratacao":"clt"},{"empregadoId":18595,"nome":"Teste 003","sexo":"m","cpf":"111.222.333-00","cargo":"Analista de QA","admissao":"01/04/2010","salario":"3.050,00","comissao":"1.000,00","tipoContratacao":"clt"},{"empregadoId":18636,"nome":"nmrydc 0994298867e7","sexo":"i","cpf":"383.188.598-20","cargo":"Analista de Teste","admissao":"29/12/2021","salario":"11.000,00","comissao":"0,00","tipoContratacao":"clt"},{"empregadoId":18637,"nome":"zozdvr 03a7702fe31b","sexo":"i","cpf":"234.130.701-93","cargo":"Analista de Teste","admissao":"29/12/2021","salario":"11.000,00","comissao":"0,00","tipoContratacao":"pj"},{"empregadoId":18689,"nome":"luogwc d818a3c82b99","sexo":"i","cpf":"089.330.342-93","cargo":"Analista de Teste","admissao":"07/01/2022","salario":"11.000,00","comissao":"0,00","tipoContratacao":"clt"},{"empregadoId":18690,"nome":"zilmjk 43d1da578c54","sexo":"i","cpf":"951.723.461-98","cargo":"Analista de Teste","admissao":"07/01/2022","salario":"11.000,00","comissao":"0,00","tipoContratacao":"pj"},{"empregadoId":18691,"nome":"wtchfn 13a7d4b869e1","sexo":"i","cpf":"047.239.908-01","cargo":"Analista de Teste","admissao":"07/01/2022","salario":"11.000,00","comissao":"0,00","tipoContratacao":"clt"},{"empregadoId":18490,"nome":"aalfzs 35bc80c7b856","sexo":"i","cpf":"450.184.021-80","cargo":"Analista de Teste","admissao":"17/12/2021","salario":"11.000,00","comissao":"0,00","tipoContratacao":"clt"},{"empregadoId":18491,"nome":"hwhprd 9b11df3e555d","sexo":"i","cpf":"280.610.374-67","cargo":"Analista de Teste","admissao":"17/12/2021","salario":"11.000,00","comissao":"0,00","tipoContratacao":"pj"},{"empregadoId":18492,"nome":"jozcqz 50d9385c0951","sexo":"i","cpf":"443.371.002-45","cargo":"Analista de Teste","admissao":"17/12/2021","salario":"11.000,00","comissao":"0,00","tipoContratacao":"clt"},{"empregadoId":18545,"nome":"bnylco feb7e798dc8e","sexo":"i","cpf":"881.560.085-02","cargo":"Analista de Teste","admissao":"17/12/2021","salario":"11.000,00","comissao":"0,00","tipoContratacao":"clt"},{"empregadoId":18546,"nome":"uciizf b4d0fbf43e7b","sexo":"i","cpf":"460.322.457-56","cargo":"Analista de Teste","admissao":"17/12/2021","salario":"11.000,00","comissao":"0,00","tipoContratacao":"pj"},{"empregadoId":18596,"nome":"crixpc 8cf3739d94f6","sexo":"i","cpf":"182.729.606-21","cargo":"Analista de Teste","admissao":"21/12/2021","salario":"11.000,00","comissao":"0,00","tipoContratacao":"clt"},{"empregadoId":18597,"nome":"otxgqh 3aaec1db6f25","sexo":"i","cpf":"278.828.241-94","cargo":"Analista de Teste","admissao":"21/12/2021","salario":"11.000,00","comissao":"0,00","tipoContratacao":"pj"},{"empregadoId":18638,"nome":"ogwlyb fb2c01b3b72a","sexo":"i","cpf":"642.392.833-96","cargo":"Analista de Teste","admissao":"29/12/2021","salario":"11.000,00","comissao":"0,00","tipoContratacao":"clt"},{"empregadoId":18639,"nome":"ftilao 01701cb5021e","sexo":"i","cpf":"340.995.922-00","cargo":"Analista de Teste","admissao":"29/12/2021","salario":"11.000,00","comissao":"0,00","tipoContratacao":"pj"},{"empregadoId":18692,"nome":"jaison","sexo":"m","cpf":"065.874.598-71","cargo":"Desenvolvedor de Automacao","admissao":"07/02/1998","salario":"1.000,00","comissao":"3.000,00","tipoContratacao":"clt"},{"empregadoId":18693,"nome":"jaison","sexo":"m","cpf":"065.874.598-71","cargo":"Desenvolvedor de Automacao","admissao":"07/02/1998","salario":"1.000,00","comissao":"3.000,00","tipoContratacao":"clt"},{"empregadoId":18694,"nome":"jaison","sexo":"m","cpf":"065.874.598-71","cargo":"Desenvolvedor de Automacao","admissao":"07/02/1998","salario":"1.000,00","comissao":"3.000,00","tipoContratacao":"clt"},{"empregadoId":18695,"nome":"jaison","sexo":"m","cpf":"065.874.598-71","cargo":"Desenvolvedor de Automacao","admissao":"07/02/1998","salario":"1.000,00","comissao":"3.000,00","tipoContratacao":"clt"},{"empregadoId":18493,"nome":"Oseas","sexo":"i","cpf":"065.874.598-71","cargo":"Desenvolvedor de Automacao","admissao":"07/02/1998","salario":"1.000,00","comissao":"3.000,00","tipoContratacao":"clt"},{"empregadoId":18494,"nome":"Oseas","sexo":"i","cpf":"065.874.598-71","cargo":"Desenvolvedor de Automacao","admissao":"07/02/1998","salario":"1.000,00","comissao":"3.000,00","tipoContratacao":"clt"},{"empregadoId":18495,"nome":"Oseas","sexo":"i","cpf":"065.874.598-71","cargo":"Desenvolvedor de Automacao","admissao":"07/02/1998","salario":"1.000,00","comissao":"3.000,00","tipoContratacao":"clt"},{"empregadoId":18547,"nome":"API horrível","sexo":"m","cpf":"123.134.124-90","cargo":"string","admissao":"31/12/1992","salario":"1.000,00","comissao":"1.000,00","tipoContratacao":"pj"},{"empregadoId":18548,"nome":"eita","sexo":"m","cpf":"123.134.124-90","cargo":"string","admissao":"31/12/1992","salario":"1.000,00","comissao":"1.000,00","tipoContratacao":"pj"},{"empregadoId":18598,"nome":"jltxhg 4f23884578c7","sexo":"i","cpf":"566.945.696-37","cargo":"Analista de Teste","admissao":"22/12/2021","salario":"11.000,00","comissao":"0,00","tipoContratacao":"clt"},{"empregadoId":18599,"nome":"jorbsl 790fc4ddb46c","sexo":"i","cpf":"262.199.074-69","cargo":"Analista de Teste","admissao":"22/12/2021","salario":"11.000,00","comissao":"0,00","tipoContratacao":"pj"},{"empregadoId":18640,"nome":"pzptan 58603da9faea","sexo":"i","cpf":"730.097.288-83","cargo":"Analista de Teste","admissao":"30/12/2021","salario":"11.000,00","comissao":"0,00","tipoContratacao":"clt"},{"empregadoId":18641,"nome":"wgoxnq 89d9616fdc96","sexo":"i","cpf":"661.731.579-00","cargo":"Analista de Teste","admissao":"30/12/2021","salario":"11.000,00","comissao":"0,00","tipoContratacao":"pj"},{"empregadoId":18696,"nome":"jaison","sexo":"m","cpf":"065.874.598-71","cargo":"Desenvolvedor de Automacao","admissao":"07/02/1998",... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20220107 11:28:27.905" level="INFO">C:\Users\oseas.junior\AppData\Roaming\Python\Python310\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'inm-api-test.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220107 11:28:27.905" level="INFO">${RESPOSTA_GET} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220107 11:28:26.708" endtime="20220107 11:28:27.905"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${RESPOSTA_GET}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220107 11:28:27.905" level="INFO">${RESPOSTA_GET} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220107 11:28:27.905" endtime="20220107 11:28:27.905"/>
+</kw>
+<status status="PASS" starttime="20220107 11:28:26.708" endtime="20220107 11:28:27.905"/>
+</kw>
+<kw name="Então eu espero o status code" library="base">
+<arg>200</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${RESPOSTA_GET.status_code}</arg>
+<arg>${STATUSCODE_DESEJADO}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20220107 11:28:27.921" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20220107 11:28:27.921" endtime="20220107 11:28:27.921"/>
+</kw>
+<status status="PASS" starttime="20220107 11:28:27.921" endtime="20220107 11:28:27.921"/>
+</kw>
+<status status="PASS" starttime="20220107 11:28:26.708" endtime="20220107 11:28:27.921"/>
+</test>
+<test id="s1-t2" name="Cenario: Cadastro de funcionarios (POST)">
+<kw name="Dado que eu esteja logado" library="base">
+<kw name="Create List" library="BuiltIn">
+<var>${AUTH}</var>
+<arg>${user}</arg>
+<arg>${password}</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20220107 11:28:27.921" level="INFO">${AUTH} = ['inmetrics', 'automacao']</msg>
+<status status="PASS" starttime="20220107 11:28:27.921" endtime="20220107 11:28:27.921"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>APIInmetrics</arg>
+<arg>${BASE_URL_API}</arg>
+<arg>auth=${AUTH}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220107 11:28:27.921" level="INFO">Creating Session using : alias=APIInmetrics, url=https://inm-api-test.herokuapp.com/empregado, headers={},                     cookies={}, auth=&lt;requests.auth.HTTPBasicAuth object at 0x000001472E4A5FF0&gt;, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220107 11:28:27.921" endtime="20220107 11:28:27.921"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${AUTH}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220107 11:28:27.921" level="INFO">${AUTH} = ['inmetrics', 'automacao']</msg>
+<status status="PASS" starttime="20220107 11:28:27.921" endtime="20220107 11:28:27.921"/>
+</kw>
+<status status="PASS" starttime="20220107 11:28:27.921" endtime="20220107 11:28:27.921"/>
+</kw>
+<kw name="Quando eu preparar um body" library="base">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${HEADERS}</var>
+<arg>content-type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220107 11:28:27.927" level="INFO">${HEADERS} = {'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20220107 11:28:27.927" endtime="20220107 11:28:27.927"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${RESPOSTA_POST}</var>
+<arg>APIInmetrics</arg>
+<arg>${BASE_URL_API}/cadastrar</arg>
+<arg>data=${FUNCIONARIO_BODY}</arg>
+<arg>headers=${HEADERS}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20220107 11:28:28.659" level="INFO">POST Request : url=https://inm-api-test.herokuapp.com/empregado/cadastrar 
+ path_url=/empregado/cadastrar 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'content-type': 'application/json', 'Content-Length': '219', 'Authorization': 'Basic aW5tZXRyaWNzOmF1dG9tYWNhbw=='} 
+ body={ "nome": "jaison", "sexo": "m", "cpf": "065.874.598-71", "departamentoId": "1", "cargo": "Desenvolvedor de Automacao", "admissao": "07/02/1998", "salario": "1.000,00", "comissao": "3.000,00", "tipoContratacao": "clt" } 
+ </msg>
+<msg timestamp="20220107 11:28:28.659" level="INFO">POST Response : url=https://inm-api-test.herokuapp.com/empregado/cadastrar 
+ status=202, reason= 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'Set-Cookie': 'JSESSIONID=545124A7A82FAB87092A93D410F69ACA; Path=/; Secure; HttpOnly', 'X-Content-Type-Options': 'nosniff', 'X-Xss-Protection': '1; mode=block', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': '0', 'Strict-Transport-Security': 'max-age=31536000 ; includeSubDomains', 'X-Frame-Options': 'DENY', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Fri, 07 Jan 2022 14:28:25 GMT', 'Via': '1.1 vegur'} 
+ body={"empregadoId":18714,"nome":"jaison","sexo":"m","cpf":"065.874.598-71","cargo":"Desenvolvedor de Automacao","admissao":"07/02/1998","salario":"1.000,00","comissao":"3.000,00","tipoContratacao":"clt"} 
+ </msg>
+<msg timestamp="20220107 11:28:28.659" level="INFO">C:\Users\oseas.junior\AppData\Roaming\Python\Python310\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'inm-api-test.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220107 11:28:28.659" level="INFO">${RESPOSTA_POST} = &lt;Response [202]&gt;</msg>
+<status status="PASS" starttime="20220107 11:28:27.927" endtime="20220107 11:28:28.659"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPOSTA_POST}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20220107 11:28:28.659" level="INFO">${RESPOSTA_POST} = &lt;Response [202]&gt;</msg>
+<status status="PASS" starttime="20220107 11:28:28.659" endtime="20220107 11:28:28.659"/>
+</kw>
+<status status="PASS" starttime="20220107 11:28:27.921" endtime="20220107 11:28:28.659"/>
+</kw>
+<kw name="Então valido o retorno do cadastro" library="base">
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>202</arg>
+<arg>${RESPOSTA_POST}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220107 11:28:28.659" endtime="20220107 11:28:28.659"/>
+</kw>
+<status status="PASS" starttime="20220107 11:28:28.659" endtime="20220107 11:28:28.659"/>
+</kw>
+<status status="PASS" starttime="20220107 11:28:27.921" endtime="20220107 11:28:28.659"/>
+</test>
+<test id="s1-t3" name="Cenario: Lista de funcionario pelo ID (GET)">
+<kw name="Dado que eu esteja logado" library="base">
+<kw name="Create List" library="BuiltIn">
+<var>${AUTH}</var>
+<arg>${user}</arg>
+<arg>${password}</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20220107 11:28:28.659" level="INFO">${AUTH} = ['inmetrics', 'automacao']</msg>
+<status status="PASS" starttime="20220107 11:28:28.659" endtime="20220107 11:28:28.659"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>APIInmetrics</arg>
+<arg>${BASE_URL_API}</arg>
+<arg>auth=${AUTH}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220107 11:28:28.659" level="INFO">Creating Session using : alias=APIInmetrics, url=https://inm-api-test.herokuapp.com/empregado, headers={},                     cookies={}, auth=&lt;requests.auth.HTTPBasicAuth object at 0x000001472E4A72B0&gt;, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220107 11:28:28.659" endtime="20220107 11:28:28.659"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${AUTH}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220107 11:28:28.659" level="INFO">${AUTH} = ['inmetrics', 'automacao']</msg>
+<status status="PASS" starttime="20220107 11:28:28.659" endtime="20220107 11:28:28.659"/>
+</kw>
+<status status="PASS" starttime="20220107 11:28:28.659" endtime="20220107 11:28:28.659"/>
+</kw>
+<kw name="Quando eu fizer uma busca por ID" library="base">
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${RESPOSTA_GET}</var>
+<arg>APIInmetrics</arg>
+<arg>${BASE_URL_API}/list/${RESPOSTA_POST.json()["empregadoId"]}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220107 11:28:29.430" level="INFO">GET Request : url=https://inm-api-test.herokuapp.com/empregado/list/18714 
+ path_url=/empregado/list/18714 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Basic aW5tZXRyaWNzOmF1dG9tYWNhbw=='} 
+ body=None 
+ </msg>
+<msg timestamp="20220107 11:28:29.430" level="INFO">GET Response : url=https://inm-api-test.herokuapp.com/empregado/list/18714 
+ status=202, reason= 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'Set-Cookie': 'JSESSIONID=6905A8CB3133CEA94732D30C0AE329C1; Path=/; Secure; HttpOnly', 'X-Content-Type-Options': 'nosniff', 'X-Xss-Protection': '1; mode=block', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': '0', 'Strict-Transport-Security': 'max-age=31536000 ; includeSubDomains', 'X-Frame-Options': 'DENY', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Fri, 07 Jan 2022 14:28:26 GMT', 'Via': '1.1 vegur'} 
+ body={"empregadoId":18714,"nome":"jaison","sexo":"m","cpf":"065.874.598-71","cargo":"Desenvolvedor de Automacao","admissao":"07/02/1998","salario":"1.000,00","comissao":"3.000,00","tipoContratacao":"clt"} 
+ </msg>
+<msg timestamp="20220107 11:28:29.430" level="INFO">C:\Users\oseas.junior\AppData\Roaming\Python\Python310\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'inm-api-test.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220107 11:28:29.430" level="INFO">${RESPOSTA_GET} = &lt;Response [202]&gt;</msg>
+<status status="PASS" starttime="20220107 11:28:28.659" endtime="20220107 11:28:29.430"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${RESPOSTA_GET}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220107 11:28:29.445" level="INFO">${RESPOSTA_GET} = &lt;Response [202]&gt;</msg>
+<status status="PASS" starttime="20220107 11:28:29.430" endtime="20220107 11:28:29.445"/>
+</kw>
+<status status="PASS" starttime="20220107 11:28:28.659" endtime="20220107 11:28:29.445"/>
+</kw>
+<kw name="Então eu espero o retorno deste funcionario" library="base">
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>202</arg>
+<arg>${RESPOSTA_GET}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220107 11:28:29.445" endtime="20220107 11:28:29.445"/>
+</kw>
+<status status="PASS" starttime="20220107 11:28:29.445" endtime="20220107 11:28:29.445"/>
+</kw>
+<status status="PASS" starttime="20220107 11:28:28.659" endtime="20220107 11:28:29.445"/>
+</test>
+<test id="s1-t4" name="Cenario: Alterando um funcionario (PUT)">
+<kw name="Dado que eu esteja logado" library="base">
+<kw name="Create List" library="BuiltIn">
+<var>${AUTH}</var>
+<arg>${user}</arg>
+<arg>${password}</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20220107 11:28:29.445" level="INFO">${AUTH} = ['inmetrics', 'automacao']</msg>
+<status status="PASS" starttime="20220107 11:28:29.445" endtime="20220107 11:28:29.445"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>APIInmetrics</arg>
+<arg>${BASE_URL_API}</arg>
+<arg>auth=${AUTH}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220107 11:28:29.445" level="INFO">Creating Session using : alias=APIInmetrics, url=https://inm-api-test.herokuapp.com/empregado, headers={},                     cookies={}, auth=&lt;requests.auth.HTTPBasicAuth object at 0x000001472E5211B0&gt;, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220107 11:28:29.445" endtime="20220107 11:28:29.445"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${AUTH}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220107 11:28:29.445" level="INFO">${AUTH} = ['inmetrics', 'automacao']</msg>
+<status status="PASS" starttime="20220107 11:28:29.445" endtime="20220107 11:28:29.445"/>
+</kw>
+<status status="PASS" starttime="20220107 11:28:29.445" endtime="20220107 11:28:29.445"/>
+</kw>
+<kw name="Quando eu alterar um funcionario" library="base">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${HEADERS}</var>
+<arg>content-type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220107 11:28:29.445" level="INFO">${HEADERS} = {'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20220107 11:28:29.445" endtime="20220107 11:28:29.445"/>
+</kw>
+<kw name="PUT On Session" library="RequestsLibrary">
+<var>${RESPOSTA_PUT}</var>
+<arg>APIInmetrics</arg>
+<arg>${BASE_URL_API}/alterar/${RESPOSTA_POST.json()["empregadoId"]}</arg>
+<arg>data=${FUNCIONARIO_BODY_ALTERAR}</arg>
+<arg>headers=${HEADERS}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<msg timestamp="20220107 11:28:30.195" level="INFO">PUT Request : url=https://inm-api-test.herokuapp.com/empregado/alterar/18714 
+ path_url=/empregado/alterar/18714 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'content-type': 'application/json', 'Content-Length': '218', 'Authorization': 'Basic aW5tZXRyaWNzOmF1dG9tYWNhbw=='} 
+ body={ "nome": "oseas", "sexo": "m", "cpf": "065.874.598-71", "departamentoId": "1", "cargo": "Desenvolvedor de Automacao", "admissao": "07/02/1998", "salario": "1.000,00", "comissao": "3.000,00", "tipoContratacao": "clt" } 
+ </msg>
+<msg timestamp="20220107 11:28:30.195" level="INFO">PUT Response : url=https://inm-api-test.herokuapp.com/empregado/alterar/18714 
+ status=202, reason= 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'Set-Cookie': 'JSESSIONID=6CF99D7379ECD5712493DA97479A8504; Path=/; Secure; HttpOnly', 'X-Content-Type-Options': 'nosniff', 'X-Xss-Protection': '1; mode=block', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': '0', 'Strict-Transport-Security': 'max-age=31536000 ; includeSubDomains', 'X-Frame-Options': 'DENY', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Fri, 07 Jan 2022 14:28:26 GMT', 'Via': '1.1 vegur'} 
+ body={"empregadoId":18714,"nome":"oseas","sexo":"m","cpf":"065.874.598-71","cargo":"Desenvolvedor de Automacao","admissao":"07/02/1998","salario":"1.000,00","comissao":"3.000,00","tipoContratacao":"clt"} 
+ </msg>
+<msg timestamp="20220107 11:28:30.195" level="INFO">C:\Users\oseas.junior\AppData\Roaming\Python\Python310\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'inm-api-test.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220107 11:28:30.195" level="INFO">${RESPOSTA_PUT} = &lt;Response [202]&gt;</msg>
+<status status="PASS" starttime="20220107 11:28:29.445" endtime="20220107 11:28:30.195"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPOSTA_PUT}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20220107 11:28:30.195" level="INFO">${RESPOSTA_PUT} = &lt;Response [202]&gt;</msg>
+<status status="PASS" starttime="20220107 11:28:30.195" endtime="20220107 11:28:30.195"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${RESPOSTA_PUT.json()["empregadoId"]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220107 11:28:30.195" level="INFO">18714</msg>
+<status status="PASS" starttime="20220107 11:28:30.195" endtime="20220107 11:28:30.195"/>
+</kw>
+<status status="PASS" starttime="20220107 11:28:29.445" endtime="20220107 11:28:30.195"/>
+</kw>
+<kw name="Então eu valido este funcionario alterado" library="base">
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>202</arg>
+<arg>${RESPOSTA_PUT}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220107 11:28:30.195" endtime="20220107 11:28:30.195"/>
+</kw>
+<status status="PASS" starttime="20220107 11:28:30.195" endtime="20220107 11:28:30.195"/>
+</kw>
+<status status="PASS" starttime="20220107 11:28:29.445" endtime="20220107 11:28:30.195"/>
+</test>
+<test id="s1-t5" name="Cenario: Deletando um funcionario (DELETE)">
+<kw name="Dado que eu esteja logado" library="base">
+<kw name="Create List" library="BuiltIn">
+<var>${AUTH}</var>
+<arg>${user}</arg>
+<arg>${password}</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20220107 11:28:30.195" level="INFO">${AUTH} = ['inmetrics', 'automacao']</msg>
+<status status="PASS" starttime="20220107 11:28:30.195" endtime="20220107 11:28:30.195"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>APIInmetrics</arg>
+<arg>${BASE_URL_API}</arg>
+<arg>auth=${AUTH}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220107 11:28:30.195" level="INFO">Creating Session using : alias=APIInmetrics, url=https://inm-api-test.herokuapp.com/empregado, headers={},                     cookies={}, auth=&lt;requests.auth.HTTPBasicAuth object at 0x000001472E5202B0&gt;, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220107 11:28:30.195" endtime="20220107 11:28:30.195"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${AUTH}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220107 11:28:30.195" level="INFO">${AUTH} = ['inmetrics', 'automacao']</msg>
+<status status="PASS" starttime="20220107 11:28:30.195" endtime="20220107 11:28:30.195"/>
+</kw>
+<status status="PASS" starttime="20220107 11:28:30.195" endtime="20220107 11:28:30.195"/>
+</kw>
+<kw name="Quando eu fizer um delete em um funcionario" library="base">
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${RESPOSTA_DELETE}</var>
+<arg>APIInmetrics</arg>
+<arg>${BASE_URL_API}/deletar/${RESPOSTA_PUT.json()["empregadoId"]}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20220107 11:28:30.931" level="INFO">DELETE Request : url=https://inm-api-test.herokuapp.com/empregado/deletar/18714 
+ path_url=/empregado/deletar/18714 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0', 'Authorization': 'Basic aW5tZXRyaWNzOmF1dG9tYWNhbw=='} 
+ body=None 
+ </msg>
+<msg timestamp="20220107 11:28:30.931" level="INFO">DELETE Response : url=https://inm-api-test.herokuapp.com/empregado/deletar/18714 
+ status=202, reason= 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'Set-Cookie': 'JSESSIONID=EBC6AA21850544CED12E738E7C6B8BED; Path=/; Secure; HttpOnly', 'X-Content-Type-Options': 'nosniff', 'X-Xss-Protection': '1; mode=block', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': '0', 'Strict-Transport-Security': 'max-age=31536000 ; includeSubDomains', 'X-Frame-Options': 'DENY', 'Content-Type': 'text/plain;charset=UTF-8', 'Content-Length': '8', 'Date': 'Fri, 07 Jan 2022 14:28:28 GMT', 'Via': '1.1 vegur'} 
+ body=Deletado 
+ </msg>
+<msg timestamp="20220107 11:28:30.931" level="INFO">C:\Users\oseas.junior\AppData\Roaming\Python\Python310\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'inm-api-test.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220107 11:28:30.931" level="INFO">${RESPOSTA_DELETE} = &lt;Response [202]&gt;</msg>
+<status status="PASS" starttime="20220107 11:28:30.195" endtime="20220107 11:28:30.931"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${RESPOSTA_DELETE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220107 11:28:30.931" level="INFO">${RESPOSTA_DELETE} = &lt;Response [202]&gt;</msg>
+<status status="PASS" starttime="20220107 11:28:30.931" endtime="20220107 11:28:30.931"/>
+</kw>
+<status status="PASS" starttime="20220107 11:28:30.195" endtime="20220107 11:28:30.931"/>
+</kw>
+<kw name="Então eu espero que o funcionario seja deletado" library="base">
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>202</arg>
+<arg>${RESPOSTA_DELETE}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220107 11:28:30.931" endtime="20220107 11:28:30.947"/>
+</kw>
+<status status="PASS" starttime="20220107 11:28:30.931" endtime="20220107 11:28:30.947"/>
+</kw>
+<status status="PASS" starttime="20220107 11:28:30.195" endtime="20220107 11:28:30.947"/>
+</test>
+<doc>Testes na API da Inmetrics</doc>
+<status status="PASS" starttime="20220107 11:28:26.624" endtime="20220107 11:28:30.947"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="5" fail="0" skip="0" id="s1" name="Api inmetrics">Api inmetrics</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
